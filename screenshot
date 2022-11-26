@@ -1,0 +1,35 @@
+import pyautogui
+from PIL import Image
+import cv2
+import time
+import os
+#import vlc
+from moviepy.editor import *
+
+
+while True:
+    
+    
+    def convert(image_path): # converts image into that weird number stuff
+        
+        img = Image.open(image_path)
+
+        width, height = img.size
+        aspect_ratio = height/width
+        new_width = 50
+        new_height = 38#aspect_ratio * new_width * 0.55
+        img = img.resize((new_width, int(new_height)))
+
+        returnmessage = ""
+        for y in range(img.height):
+            for x in range(img.width):
+                r,g,b = img.getpixel((x,y))
+                returnmessage = returnmessage + f"{r} {g} {b}A"
+        return returnmessage + "N"
+
+    im = pyautogui.screenshot()
+    name = "ss"+str(1)+".jpg"
+    im.save(name)
+    with open(r"C:\Users\[user]\Downloads\workspace\screen.txt", "w") as f: #make this the path to your workspace folder (scriptware is the only exacutor ive tested)
+        writemessage = convert("SS1.jpg")
+        f.write(writemessage)

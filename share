@@ -1,6 +1,5 @@
-print("?")
+
 _G.Enabled = true
-print("attempt")
 local file = "screen.txt"
 	print(data)
 	function update(text)
@@ -53,7 +52,6 @@ local file = "screen.txt"
 		["🧪"] = {0, 128, 128},
 		["🐋"] = {0, 255, 255},
 	}
-print("doing")
 while wait() do
 	local success, err = pcall(function()
     print("called")
